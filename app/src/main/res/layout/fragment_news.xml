@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cr7"
+    android:background="@drawable/marta"
     tools:context=".ui.news.NewsFragment">
 
 
@@ -20,6 +20,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:itemCount="3"
         tools:listitem="@layout/news_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,11 +11,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 
+import com.example.soccernews.data.local.AppDatabase;
 import com.example.soccernews.databinding.FragmentFavoritesBinding;
 
 public class FavoritesFragment extends Fragment {
 
     private FragmentFavoritesBinding binding;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
