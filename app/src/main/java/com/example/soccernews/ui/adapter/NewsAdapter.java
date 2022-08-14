@@ -35,14 +35,30 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         News news = this.news.get(position);
+        //passando titulo
         holder.binding.tvTitle.setText(news.getTitle());
+        //passando descriçao
         holder.binding.tvDescription.setText(news.getDescription());
+        //impleentando imagem
         Picasso.get().load(news.getImage()).into(holder.binding.imView);
+        //abrir link
         holder.binding.btOpenLink.setOnClickListener(view -> {
 Intent i = new Intent(Intent.ACTION_VIEW);
 i.setData(Uri.parse(news.getLink()));
 holder.itemView.getContext().startActivity(i);
     });
+        //compartilhar
+        holder.binding.ivShare.setOnClickListener(view -> {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, (news.getLink()));
+            sendIntent.setType("text/plain");
+
+            Intent shareIntent = Intent.createChooser(sendIntent, "Compartilhar via");
+            holder.itemView.getContext().startActivity(shareIntent);
+
+        });
+//favoritar
     }
 
     @Override
