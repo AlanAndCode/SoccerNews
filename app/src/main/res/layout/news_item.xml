@@ -75,8 +75,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="10dp"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+                />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btOpenLink"
