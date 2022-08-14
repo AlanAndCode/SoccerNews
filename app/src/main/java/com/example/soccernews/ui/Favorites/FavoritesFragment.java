@@ -9,10 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 
+import com.example.soccernews.MainActivity;
 import com.example.soccernews.data.local.AppDatabase;
 import com.example.soccernews.databinding.FragmentFavoritesBinding;
+import com.example.soccernews.domain.News;
+import com.example.soccernews.ui.adapter.NewsAdapter;
+
+import java.util.List;
 
 public class FavoritesFragment extends Fragment {
 
@@ -21,15 +27,17 @@ public class FavoritesFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        FavoritesViewModel dashboardViewModel =
+        FavoritesViewModel FavoritesViewModel =
                 new ViewModelProvider(this).get(FavoritesViewModel.class);
 
         binding = FragmentFavoritesBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textFavorites;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        MainActivity activity = (MainActivity) getActivity();
+         List<News> favoriteNews = activity.getDb().newsDAO().loadFavoriteNews();
+        binding.rvFavorites.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.rvFavorites.setAdapter(new NewsAdapter(favoriteNews, updatedNews ->{
+          activity.getDb().newsDao.save(updatedNews);
+            }));
+        return binding.getRoot();
     }
 
     @Override
