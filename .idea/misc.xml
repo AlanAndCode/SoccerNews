@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/drawable/ic_autor.xml" value="0.196" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.195" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/drawable/ic_share.xml" value="0.196" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/autors.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/fragment_autors.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/fragment_dashboard.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/fragment_favorites.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/fragment_news.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/fragment_tweet.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/layout/news_item.xml" value="0.365625" />
         <entry key="..\:/Users/Alan/AndroidStudioProjects/SoccerNews2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
       </map>

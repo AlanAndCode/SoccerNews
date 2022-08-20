@@ -3,18 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_news">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_news"
         android:name="com.example.soccernews.ui.news.NewsFragment"
-        android:label="Planeta Futebol Femnino"
+        android:label="Planeta Futebol Femenino"
         tools:layout="@layout/fragment_news" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_favorites"
         android:name="com.example.soccernews.ui.Favorites.FavoritesFragment"
-        android:label="@string/title_favorites"
+        android:label="Suas Noticias Favoritas"
         tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/navigation_autors"
+        android:name="com.example.soccernews.ui.Autors.AutorsFragment"
+        android:label="Conheça Quem Escreve"
+        tools:layout="@layout/fragment_autors" />
+
 
 </navigation>
