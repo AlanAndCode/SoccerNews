@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/navigation_autors"
         android:name="com.example.soccernews.ui.Autors.AutorsFragment"
-        android:label="Conheça Quem Escreve"
+        android:label="Conheça quem escreve aqui"
         tools:layout="@layout/fragment_autors" />
 
 

@@ -14,6 +14,6 @@
     <item
         android:id="@+id/navigation_autors"
         android:icon="@drawable/ic_autor"
-        android:title="@string/title_favorites" />
+        android:title="@string/title_autors" />
 
 </menu>

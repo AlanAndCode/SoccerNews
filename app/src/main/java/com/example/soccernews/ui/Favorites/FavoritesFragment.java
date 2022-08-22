@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 
 import com.example.soccernews.MainActivity;
-import com.example.soccernews.data.local.AppDatabase;
 import com.example.soccernews.databinding.FragmentFavoritesBinding;
 import com.example.soccernews.domain.News;
 import com.example.soccernews.ui.adapter.NewsAdapter;

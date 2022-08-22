@@ -13,12 +13,12 @@
 
         <!-- Media -->
         <ImageView
+            android:id="@+id/auImage"
             android:layout_width="match_parent"
             android:layout_height="194dp"
-            app:srcCompat="@drawable/ic_autor"
-            android:scaleType="centerCrop"
             android:contentDescription="escrever"
-            />
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_autor" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,19 +28,20 @@
 
             <!-- Title, secondary and supporting text -->
             <TextView
+                android:id="@+id/auTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="name"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                />
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
             <TextView
+                android:id="@+id/auDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="suporte"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                />
+                android:textColor="?android:attr/textColorSecondary" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

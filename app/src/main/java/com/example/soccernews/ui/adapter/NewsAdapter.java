@@ -2,10 +2,8 @@ package com.example.soccernews.ui.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.text.CaseMap;
 import android.net.Uri;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -29,6 +27,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         this.news = news;
         this.favoriteListener = favoriteListener;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

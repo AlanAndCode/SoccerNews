@@ -2,65 +2,47 @@ package com.example.soccernews.ui.Autors;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.soccernews.R;
+import com.example.soccernews.MainActivity;
+import com.example.soccernews.data.local.AppDatabase;
+import com.example.soccernews.databinding.FragmentAutorsBinding;
+import com.example.soccernews.domain.News;
+import com.example.soccernews.ui.adapter.AutorAdapter;
+import com.example.soccernews.ui.adapter.NewsAdapter;
+;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AutorsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class AutorsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private FragmentAutorsBinding binding;
+    private AppDatabase db;
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        AutorsViewModel AutorsViewModel =
+                new ViewModelProvider(this).get(AutorsViewModel.class);
 
-    public AutorsFragment() {
-        // Required empty public constructor
+        binding = FragmentAutorsBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+
+        binding.rvAutors.setLayoutManager(new LinearLayoutManager(getContext()));
+        AutorsViewModel.getAutors().observe(getViewLifecycleOwner(), autors -> {
+            binding.rvAutors.setAdapter(new AutorAdapter(autors));
+        });
+        return root;
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TweetFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AutorsFragment newInstance(String param1, String param2) {
-        AutorsFragment fragment = new AutorsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_autors, container, false);
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
