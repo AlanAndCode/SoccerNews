@@ -42,6 +42,7 @@ public class AutorAdapter extends RecyclerView.Adapter<AutorAdapter.ViewHolder> 
      Autors autors  = this.autors.get(position);
         holder.binding.auTitle.setText(autors.title);
         holder.binding.auDescription.setText(autors.description);
+        Picasso.get().load(autors.image).into(holder.binding.auImage);
     }
 
     @Override

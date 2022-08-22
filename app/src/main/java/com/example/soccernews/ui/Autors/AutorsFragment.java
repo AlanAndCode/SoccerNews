@@ -1,15 +1,20 @@
 package com.example.soccernews.ui.Autors;
 
+import android.graphics.drawable.GradientDrawable;
+import android.icu.lang.UCharacter;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.OrientationEventListener;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.soccernews.MainActivity;
 import com.example.soccernews.data.local.AppDatabase;
@@ -34,12 +39,19 @@ public class AutorsFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        binding.rvAutors.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        binding.rvAutors.setLayoutManager( layoutManager );
         AutorsViewModel.getAutors().observe(getViewLifecycleOwner(), autors -> {
             binding.rvAutors.setAdapter(new AutorAdapter(autors));
+
         });
         return root;
     }
+
+    
+
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

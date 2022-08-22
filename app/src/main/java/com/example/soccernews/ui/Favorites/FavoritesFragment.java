@@ -34,7 +34,7 @@ public class FavoritesFragment extends Fragment {
         List<News> favoriteNews = activity.getDb().newsDAO().loadFavoriteNews();
         binding.rvFavorites.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvFavorites.setAdapter(new NewsAdapter(favoriteNews, updatedNews ->{
-            activity.getDb().newsDao.save(updatedNews);
+            activity.getDb().newsDAO().save(updatedNews);
         }));
         return binding.getRoot();
     }

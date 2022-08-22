@@ -5,7 +5,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Dao;
 
-import com.example.soccernews.domain.Autors;
 import com.example.soccernews.domain.News;
 
 import java.util.List;
