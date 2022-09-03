@@ -15,63 +15,80 @@
         <ImageView
             android:id="@+id/auImage"
             android:layout_width="match_parent"
-            android:layout_height="194dp"
+            android:layout_height="380dp"
             android:contentDescription="escrever"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_autor" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:orientation="vertical"
             android:padding="16dp">
 
             <!-- Title, secondary and supporting text -->
+
             <TextView
                 android:id="@+id/auTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="name"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="36dp" />
 
-            <TextView
-                android:id="@+id/auDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="suporte"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="suporte"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                />
 
+            <ScrollView
+                android:id="@+id/SCROLLER_ID"
+                android:layout_width="371dp"
+                android:layout_height="106dp"
+                android:fillViewport="true"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/auDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="suporte"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="12sp" />
+            </ScrollView>
         </LinearLayout>
 
         <!-- Buttons -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="horizontal">
+            android:layout_width="260dp"
+            android:layout_height="74dp"
+            android:layout_margin="8dp">
+
+            <ImageButton
+                android:id="@+id/ivShare"
+                android:layout_width="53dp"
+                android:layout_height="59dp"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="10dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/btOpenLink"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btOpenLink"
+                app:srcCompat="@drawable/link" />
+
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btOpenLink"
+                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="Curtir"
-                style="?attr/borderlessButtonStyle"
-                />
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Curtir"
-                style="?attr/borderlessButtonStyle"
-                />
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin"
+                android:layout_marginBottom="8dp"
+                android:text="@string/txt_open_autor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
         </LinearLayout>
 
     </LinearLayout>

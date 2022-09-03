@@ -22,22 +22,30 @@ import java.util.List;
 public class FavoritesFragment extends Fragment {
 
     private FragmentFavoritesBinding binding;
+    private FavoritesViewModel favoritesViewModel;
 
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        FavoritesViewModel FavoritesViewModel =
-                new ViewModelProvider(this).get(FavoritesViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        favoritesViewModel = new ViewModelProvider(this).get(FavoritesViewModel.class);
 
         binding = FragmentFavoritesBinding.inflate(inflater, container, false);
-        MainActivity activity = (MainActivity) getActivity();
-        List<News> favoriteNews = activity.getDb().newsDAO().loadFavoriteNews();
-        binding.rvFavorites.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.rvFavorites.setAdapter(new NewsAdapter(favoriteNews, updatedNews ->{
-            activity.getDb().newsDAO().save(updatedNews);
-        }));
+        loadFavoriteNews();
+
         return binding.getRoot();
     }
+
+    private void loadFavoriteNews() {
+        MainActivity activity = (MainActivity) getActivity();
+        List<News> favoriteNews = null;
+        if(activity != null){
+            favoriteNews =  activity.getDb().newsDAO().loadFavoriteNews();
+        }
+        binding.rvFavorites.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.rvFavorites.setAdapter(new NewsAdapter(favoriteNews, updatedNews -> {
+            activity.getDb().newsDAO().save(updatedNews);
+            loadFavoriteNews();
+        }));
+    }
+
 
     @Override
     public void onDestroyView() {

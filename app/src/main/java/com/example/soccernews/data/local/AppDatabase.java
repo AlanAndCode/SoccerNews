@@ -11,5 +11,4 @@ public abstract class AppDatabase extends RoomDatabase {
     public NewsDAO newsDao;
 
     public abstract NewsDAO newsDAO();
-    public abstract AutorDAO AutorDAO();
 }

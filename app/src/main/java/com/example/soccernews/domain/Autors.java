@@ -10,6 +10,7 @@ public  class Autors {
     public String description;
     public String image;
     public String link;
+    public String etc;
 
     public void setId(int id) {
         this.id = id;
@@ -25,6 +26,14 @@ public  class Autors {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public void setEtc(String etc) {
+        this.link = etc;
     }
 
 

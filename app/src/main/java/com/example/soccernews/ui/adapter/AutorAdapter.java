@@ -2,21 +2,18 @@ package com.example.soccernews.ui.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.text.CaseMap;
 import android.net.Uri;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.soccernews.R;
 import com.example.soccernews.databinding.AutorsItemBinding;
 import com.example.soccernews.domain.Autors;
-import com.example.soccernews.domain.News;
 import com.squareup.picasso.Picasso;
-import com.example.soccernews.domain.Autors;
+
 import java.util.List;
 
 
@@ -39,10 +36,23 @@ public class AutorAdapter extends RecyclerView.Adapter<AutorAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Context context = holder.itemView.getContext();
      Autors autors  = this.autors.get(position);
         holder.binding.auTitle.setText(autors.title);
         holder.binding.auDescription.setText(autors.description);
         Picasso.get().load(autors.image).into(holder.binding.auImage);
+        holder.binding.ivShare.setOnClickListener(view -> {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(autors.link));
+            holder.itemView.getContext().startActivity(i);
+        });
+        holder.binding.btOpenLink.setOnClickListener(view -> {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(autors.etc));
+            holder.itemView.getContext().startActivity(i);
+        });
+
+
     }
 
     @Override
